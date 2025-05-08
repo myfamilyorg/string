@@ -1,0 +1,7 @@
+[crate]
+	lib = "string"
+[deps]
+	result = { git = "https://github.com/myfamilyorg/result" }
+	rc = { git = "https://github.com/myfamilyorg/rc" }
+	slice_ext = { git = "https://github.com/myfamilyorg/slice_ext" }
+	str_ext = { git = "https://github.com/myfamilyorg/str_ext" }
