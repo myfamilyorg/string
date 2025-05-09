@@ -5,3 +5,4 @@
 	rc = { git = "https://github.com/myfamilyorg/rc" }
 	slice_ext = { git = "https://github.com/myfamilyorg/slice_ext" }
 	str_ext = { git = "https://github.com/myfamilyorg/str_ext" }
+	display = { git = "https://github.com/myfamilyorg/display" }

@@ -1,6 +1,7 @@
 #![no_std]
 
 extern crate boxed;
+extern crate display;
 extern crate errors;
 extern crate macros;
 extern crate ptr;
@@ -14,6 +15,7 @@ use core::cmp::Ordering;
 use core::ops::{Index, Range, RangeFrom, RangeFull, RangeTo};
 use core::slice::from_raw_parts;
 use core::str::from_utf8_unchecked;
+use display::{Display, Fmt};
 use errors::*;
 use macros::prelude::*;
 use ptr::Ptr;
@@ -89,13 +91,11 @@ impl PartialOrd for String {
 
 impl Eq for String {}
 
-/*
 impl Display for String {
-    fn format(&self, f: &mut Formatter) -> Result<()> {
+    fn format(&self, f: &mut dyn Fmt) -> Result<()> {
         writef!(f, "{}", self.as_str())
     }
 }
-*/
 
 impl Index<Range<usize>> for String {
     type Output = str; // Output is a string slice, not a String
@@ -274,5 +274,15 @@ impl String {
         let sb = s.as_bytes();
         let _ = v[1..sb.len() + 1].slice_copy(sb);
         Self::SSOData(SSODataStruct(v))
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[mytest]
+    fn test_string1() -> Result<()> {
+        Ok(())
     }
 }
